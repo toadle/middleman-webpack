@@ -1,0 +1,16 @@
+.capitals {
+  text-transform: uppercase;
+}
+.block-centered {
+  display: block;
+  margin: auto;
+}
+.text-centered {
+  text-align: center;
+}
+.small-text {
+  font-size: $font-size-sm;
+}
+.smaller-text {
+  font-size: 0.8rem;
+}

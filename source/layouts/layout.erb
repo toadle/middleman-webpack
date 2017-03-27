@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title><%= current_page.data.title || "Middleman" %></title>
+
+    <%= stylesheet_link_tag webpack_asset_path "main.css" %>
+  </head>
+
+  <body class="<%= page_classes %>">
+    <div class="container">
+      <div class="col-md-12">
+        <%= partial 'menu' %>
+        <%= yield %>
+      </div>
+    </div>
+    <%= javascript_include_tag webpack_asset_path "main.js" %>
+  </body>
+</html>
