@@ -1,3 +1,5 @@
+Bundler.require(:default, :development)
+
 configure :development do
   activate :livereload, no_swf: true
 end
