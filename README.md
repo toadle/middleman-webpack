@@ -1,6 +1,10 @@
 # middleman-webpack
 A [middleman v4](https://middlemanapp.com/) with [webpack2](https://webpack.js.org/), [bootstrap4.alpha-6](http://v4-alpha.getbootstrap.com/) and [fontawesome](http://fontawesome.io/) already integrated
 
+# Requirements
+- Ruby
+- NodeJS
+
 ## How to get started
 
 1. Clone this repo to your machine in a nice directory.
@@ -8,4 +12,12 @@ A [middleman v4](https://middlemanapp.com/) with [webpack2](https://webpack.js.o
 3. Run `bundle install`. Wait. 
 4. Run `npm install`. Wait. 
 5. Run `middleman s`.
-6. You should be able to open the page at `http://localhost:4567`.
+6. You should be able to open the page at `http://localhost:3000`.
+7. You can create a final production-build by running `middleman build`. 
+
+## How does it work
+
+- Uses `middleman`'s external pipeline to generate assets. Configuration is in the two `environment`-files `development.rb` and `production.rb`
+- Runs `webpack` as it's external pipeline, as configured in `package.json`.
+- `webpack` uses the the `webpack.config.js` as it's configuration. 
+- When run as `middleman s` in `development` it'll start `middleman`, 'middleman-livereload', `webpack` and [BrowserSync](https://www.browsersync.io/). So reloading of templates and JS/CSS-changes should be reflected without manual reloads.
