@@ -1,5 +1,5 @@
 configure :development do
-  activate :livereload
+  activate :livereload, no_swf: true
 end
 
 activate :external_pipeline,

@@ -17,6 +17,7 @@ module WebpackAssetHelper
     end
     
     asset_path = rev_manifest[path]
+    raise "Can't find #{path} in webpack assets. See rev-manifest.json for complete list." unless asset_path
     File.absolute_path(asset_path, '/')
   end
 end

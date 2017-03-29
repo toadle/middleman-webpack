@@ -1,21 +1,19 @@
 var webpack = require('webpack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 var path = require('path');
 var ManifestPlugin = require('webpack-manifest-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
-
-const extractSass = new ExtractTextPlugin({
-  filename: "bundle-[hash].css"
-});
+var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 const outputPath = path.join(__dirname, '.tmp', 'dist');
 
 module.exports = {
-  entry: [path.join(__dirname, '/index.js')],
+  entry: {
+    site: path.join(__dirname, '/index.js')
+  },
 
   output: {
     path: outputPath,
-    filename: 'bundle-[hash].js',
+    filename: '[name]-[hash].js',
     publicPath: '/'
   },
 
@@ -31,7 +29,11 @@ module.exports = {
         test: /\.(woff|woff2|eot|ttf|svg|ico|jpg|jpeg|png)$/,
         use: [
           {
-            loader: 'url-loader?limit=5000&name=./assets/[name]-[hash].[ext]'
+            loader: 'url-loader',
+            options: {
+              limit: 5000,
+              name: './assets/[name]-[hash].[ext]'
+            }
           }
         ]
       },
@@ -49,27 +51,49 @@ module.exports = {
       },
       {
         test: /\.(css|scss)$/,
-        use: extractSass.extract({
-          fallbackLoader: [{
-              loader: 'style-loader',
-          }],
-          use: [{
-            loader: "css-loader"
-          }, {
-            loader: "sass-loader"
-          }]
-        })
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name]-[hash].css'
+            }
+          },
+          {
+            loader: 'extract-loader'
+          },
+          {
+            loader: 'css-loader'
+          }, 
+          {
+            loader: 'resolve-url-loader'
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
       }
     ]
   },
 
   plugins: [
-    extractSass,
     new ManifestPlugin({
       fileName: 'rev-manifest.json'
     }),
     new CleanWebpackPlugin([outputPath], {
       root: __dirname
-    })
+    }),
+    new BrowserSyncPlugin(
+      {
+        host: 'localhost',
+        port: 3000,
+        proxy: 'http://localhost:4567/'
+      },
+      {
+        reloadDelay: 2000
+      }
+    )
   ]
 };
