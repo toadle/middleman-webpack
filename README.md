@@ -39,7 +39,5 @@ A [middleman v4](https://middlemanapp.com/) preconfigured to use the [external p
 - `webpack` uses the the `webpack.config.js` as it's configuration. 
 - When run as `middleman s` in `development` it'll start `middleman`, `middleman-livereload`, `webpack` and [BrowserSync](https://www.browsersync.io/). So reloading of templates and JS/CSS-changes should be reflected without manual reloads.
 - BrowserSync is configured to proxy the middleman-server from `localhost:4567` to `localhost:3000` to inject itself. 
-- When run as `middleman s` in `development` it'll start `middleman`, `middleman-livereload`, `webpack` and [BrowserSync](https://www.browsersync.io/). So reloading of templates and JS/CSS-changes should be reflected without manual reloads
-- When run as `middleman s` in `development` it'll start `middleman`, `middleman-livereload`, `webpack` and [BrowserSync](https://www.browsersync.io/). So reloading of templates and JS/CSS-changes should be reflected without manual reloads.
 - Stuff `webpack` does is put into `.tmp/dist`.
 - Uses `middleman`'s external pipeline to generate assets. Configuration is in the two `environment`-files `development.rb` and `production.rb`
