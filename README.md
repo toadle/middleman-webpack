@@ -25,7 +25,7 @@ A [middleman v4](https://middlemanapp.com/) preconfigured to use the [external p
 
 1. Start a new middleman-project using 
 
-       $ middleman init my_new_site -T joshukraine/middleman-gulp
+       $ middleman init my_new_site -T toadle/middleman-webpack
 
 2. Run `npm install`. Wait. 
 3. Run `middleman s`.
