@@ -1,4 +1,6 @@
-# middleman-webpack
+![bildschirmfoto 2017-03-29 um 17 45 17](https://cloud.githubusercontent.com/assets/115103/24463667/b044aebc-14a7-11e7-9d3f-7640c9b4c9af.png)
+
+
 A [middleman v4](https://middlemanapp.com/) with [webpack2](https://webpack.js.org/), [bootstrap4.alpha-6](http://v4-alpha.getbootstrap.com/) and [fontawesome](http://fontawesome.io/) already integrated
 
 # Requirements
