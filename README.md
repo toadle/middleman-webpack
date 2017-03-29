@@ -21,16 +21,16 @@ A [middleman v4](https://middlemanapp.com/) preconfigured to use the [external p
 
 ## How to get started
 
+(optional). Create yourself a `.ruby-version` and `.ruby-gemset`-file to not mess up your environment. I'd recommend to use [rbenv](https://github.com/rbenv/rbenv) to manage that environment. This has been tested with ruby version `2.3.3` and a gemset named `middleman-webpack`.
+
 1. Start a new middleman-project using 
 
        $ middleman init my_new_site -T joshukraine/middleman-gulp
 
-2. Create yourself a `.ruby-version` and `.ruby-gemset`-file to not mess up your environment. I'd recommend to use [rbenv](https://github.com/rbenv/rbenv) to manage that environment. This has been tested with ruby version `2.3.3` and a gemset named `middleman-webpack`.
-3. Run `bundle install`. Wait. 
-4. Run `npm install`. Wait. 
-5. Run `middleman s`.
-6. You should be able to open the page at `http://localhost:3000`.
-7. You can create a production-build by running `middleman build`. 
+2. Run `npm install`. Wait. 
+3. Run `middleman s`.
+4. You should be able to open the page at `http://localhost:3000`.
+5. You can create a production-build by running `middleman build`. 
 
 ## How does it work
 
