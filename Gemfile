@@ -10,12 +10,16 @@ gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby]
 
 # Middleman Gems
 gem 'middleman', '~> 4.2'
+gem 'middleman-minify-html'
 
 group :development do
   gem 'middleman-livereload', '~> 3.4'
 end
+
 group :test do
   gem 'rake', '~> 10.4'
   gem 'rspec', '~> 3.4'
   gem 'capybara', '~> 2.5'
 end
+
+gem 'pry-byebug'

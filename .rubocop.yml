@@ -1,18 +1,4 @@
 LineLength:
   Max: 999
-Rails:
-  Enabled: true
-Rails/HasAndBelongsToMany:
-  Enabled: false
-Documentation:
-  Enabled: false
-Style/FrozenStringLiteralComment:
-  Enabled: false
-Style/DoubleNegation:
-  Enabled: false
-Style/ClassAndModuleChildren:
-  Enabled: false
 StringLiterals:
-  Enabled: false
-Metrics/BlockLength:
   Enabled: false

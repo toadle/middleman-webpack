@@ -4,7 +4,7 @@ var ManifestPlugin = require('webpack-manifest-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
-const outputPath = path.join(__dirname, '.tmp', 'dist');
+const outputPath = path.join(__dirname, '.webpack_build');
 
 module.exports = {
   entry: {

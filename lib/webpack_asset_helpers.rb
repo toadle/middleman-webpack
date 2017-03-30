@@ -1,20 +1,11 @@
-DIST_PATH = File.join('.tmp', 'dist')
+DIST_PATH = File.join(Dir.pwd, '.webpack_build')
 REV_MANIFEST_PATH = File.join(DIST_PATH, 'rev-manifest.json')
-if File.exist?(REV_MANIFEST_PATH)
-  REV_MANIFEST = JSON.parse(File.read(REV_MANIFEST_PATH))
-end
 
 module WebpackAssetHelper
   def webpack_asset_path(path)
-    rev_manifest = nil
-
-    # In development, check for the manifest every time
-    if config[:environment].to_s != 'production'
-      rev_manifest = JSON.parse(File.read(REV_MANIFEST_PATH)) if File.exist?(REV_MANIFEST_PATH)
-    # In production, use the manifest cached in initializers/gulp.rb
-    else
-      rev_manifest = REV_MANIFEST if defined?(REV_MANIFEST)
-    end
+  	return "webpack_build_disabled_in_tests" if config[:environment] == :test
+    rev_manifest = JSON.parse(File.read(REV_MANIFEST_PATH)) if File.exist?(REV_MANIFEST_PATH)
+    raise "#{REV_MANIFEST_PATH} is missing." unless rev_manifest
     
     asset_path = rev_manifest[path]
     raise "Can't find #{path} in webpack assets. See rev-manifest.json for complete list." unless asset_path
